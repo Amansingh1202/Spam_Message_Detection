@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Spam Detector</title>
+		<style>
+		h1{
+		  margin-left: 40%;
+		  margin-top:5%;
+		  color:blue;
+		  font-family:sans-serif;
+		}
+		h2{
+		  margin-left:45%;
+		  color: orange;
+		  font-size:1.6em;
+		}
+		</style>
+	</head>
+	<body>
+		<h1>This message is ::</h1>
+		{% if decision == "spam" %}
+			<h2>Spam</h2>
+		{% elif decision == "ham" %}
+			<h2>Not a spam</h2>
+		{% endif %}
+	</body>
+</html>

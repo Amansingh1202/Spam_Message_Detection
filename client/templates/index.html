@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Spam Detector</title>
+		<style>
+		input{
+		  text-decoration: none;
+		  margin-left:40%;
+		  margin-top:5%;
+		  color: blue;
+		}
+		button{
+		  margin-left:45%;
+		  background-color: gray;
+		  color:white;
+		  font-size:1.5em;
+		  padding:4px 15px 4px 15px;
+		  border-radius:0.4em;
+		  margin-top: 10px;
+		}
+		h1{
+		  color:blueviolet;
+		  margin-left:42%;
+		  font-size:2em;
+		  font-family: sans-serif;
+		}
+		</style>
+	</head>
+	<body>
+		<h1>Check Spam</h1>
+		<form action="{{ url_for('checkSpam') }}" method="post">
+			<input type='text' name="data" id="data" placeholder="Enter message to check Spam" />
+			<br />
+			<button type='submit'>Check</button>
+		</form>
+	</body>
+</html>
+
+
