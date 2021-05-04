@@ -3,23 +3,46 @@
 	<head>
 		<title>Spam Detector</title>
 		<style>
+		.message{
+			background-color: ghostwhite;
+			padding:4px;
+			margin:4px;
+			border-radius: 2px;
+		}		
+		body{
+			background-color: ghostwhite;
+		}		
 		input{
 		  text-decoration: none;
-		  margin-left:40%;
+		  margin-left:35%;
 		  margin-top:5%;
 		  color: blue;
+	      width:500px;
+		  padding:5px;
+		  font-size: 1.1em;
 		}
 		button{
-		  margin-left:45%;
-		  background-color: gray;
+		  margin-left:47%;
+		  background-color: green;
 		  color:white;
-		  font-size:1.5em;
+		  font-size:1.2em;
 		  padding:4px 15px 4px 15px;
 		  border-radius:0.4em;
 		  margin-top: 10px;
+		  border:none;
+			
+		}
+		.messages{
+			background-color: white;
+			padding:20px;
+			font-size:1.1em;
+		}	
+		button:hover{
+			background-color: lightgreen;
+			color:black;
 		}
 		h1{
-		  color:blueviolet;
+		  color:purple;
 		  margin-left:42%;
 		  font-size:2em;
 		  font-family: sans-serif;
@@ -28,6 +51,17 @@
 	</head>
 	<body>
 		<h1>Check Spam</h1>
+		<div class="messages">
+		{% for spam in all_spam %}
+			{% if spam['decision'] == 'spam' %}
+				<div class="message" style="color:red">{{spam["text_value"]}}</div>
+			{% endif %}
+			{% if spam['decision'] == 'ham' %}
+				<div class="message" style="color:green">{{spam["text_value"]}}</div>
+			{% endif %}
+		{% endfor %}
+		</div>
+	<div>
 		<form action="{{ url_for('checkSpam') }}" method="post">
 			<input type='text' name="data" id="data" placeholder="Enter message to check Spam" />
 			<br />
